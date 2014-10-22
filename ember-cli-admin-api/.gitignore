@@ -24,3 +24,4 @@ q
 cron.log
 cron_error.log
 .rvmrc
+../admin-app/

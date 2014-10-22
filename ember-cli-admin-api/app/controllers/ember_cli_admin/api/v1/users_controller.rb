@@ -1,8 +1,9 @@
-class UsersController < ApplicationController
+class EmberCliAdmin::Api::V1::UsersController < ApplicationController
   before_action :set_user, only: [:show, :update, :destroy]
 
   def index
-    render json: User.all
+    @users = User.all.paginate(page: params[:page], per_page: params[:per_page])
+    render json: @users, meta: {total: User.count}
   end
 
   def show
