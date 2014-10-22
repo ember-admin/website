@@ -3,7 +3,7 @@ import DS from 'ember-data';
 export default DS.Model.extend({
   email: DS.attr('string'),
   avatar: DS.attr('string'),
-  products: DS.hasMany('product'),
-  updated_at: DS.attr('string'),
-  created_at: DS.attr('string')
+  products: DS.hasMany('product', {async: true}),
+  updated_at: DS.attr('date'),
+  created_at: DS.attr('date')
 });
