@@ -9,7 +9,7 @@ def create_companies
 end
 
 def truncate_users
-  Company.destroy_all
+  User.destroy_all
 end
 
 def create_users
@@ -18,8 +18,20 @@ def create_users
   end
 end
 
+def truncate_products
+  Product.destroy_all
+end
+
+def create_products
+  5.times do
+    Product.create(title: Faker::Commerce.product_name, price: Faker::Number.number(3), company: Company.all[rand(0..4)], user: User.all[rand(0..4)])
+  end
+end
+
 
 truncate_companies
 create_companies
 truncate_users
 create_users
+truncate_products
+create_products
