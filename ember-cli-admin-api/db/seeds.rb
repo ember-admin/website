@@ -3,7 +3,7 @@ def truncate_companies
 end
 
 def create_companies
-  5.times do
+  50.times do
     Company.create(title: Faker::Company.name)
   end
 end
