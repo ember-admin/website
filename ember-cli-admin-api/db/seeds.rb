@@ -23,11 +23,10 @@ def truncate_products
 end
 
 def create_products
-  5.times do
+  50.times do
     Product.create(title: Faker::Commerce.product_name, price: Faker::Number.number(3), company: Company.all[rand(0..4)], user: User.all[rand(0..4)])
   end
 end
-
 
 truncate_companies
 create_companies
