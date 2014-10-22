@@ -5,3 +5,18 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+def truncate_companies
+  Company.destroy_all
+end
+
+def create_companies
+  5.times do
+    Company.create(title: Faker::Company.name)
+  end
+end
+
+
+truncate_companies
+create_companies

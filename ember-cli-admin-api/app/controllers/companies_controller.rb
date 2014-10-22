@@ -1,49 +1,42 @@
 class CompaniesController < ApplicationController
-  before_action :set_company, only: [:show, :edit, :update, :destroy]
+  before_action :set_company, only: [:show, :update, :destroy]
 
-  # GET /companies
   def index
-    @companies = Company.all
+    render json: Company.all
   end
 
-  # GET /companies/new
-  def new
-    @company = Company.new
+  def show
+    render json: @company
   end
 
-  # POST /companies
   def create
     @company = Company.new(company_params)
 
     if @company.save
-      redirect_to @company, notice: 'Company was successfully created.'
+      render json: @company
     else
-      render :new
+      render json: {}, status: 422
     end
   end
 
-  # PATCH/PUT /companies/1
   def update
     if @company.update(company_params)
-      redirect_to @company, notice: 'Company was successfully updated.'
+      render json: @company
     else
-      render :edit
+      render json: {}, status: 422
     end
   end
 
-  # DELETE /companies/1
   def destroy
     @company.destroy
-    redirect_to companies_url, notice: 'Company was successfully destroyed.'
+    render json: {}, status: 200
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_company
       @company = Company.find(params[:id])
     end
 
-    # Only allow a trusted parameter "white list" through.
     def company_params
       params.require(:company).permit(:title, :logo)
     end
