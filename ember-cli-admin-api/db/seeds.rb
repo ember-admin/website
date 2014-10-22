@@ -4,7 +4,7 @@ end
 
 def create_companies
   50.times do
-    Company.create(title: Faker::Company.name)
+    Company.create(title: Faker::Company.name, lat: 50.448853, long: 30.513346)
   end
 end
 
