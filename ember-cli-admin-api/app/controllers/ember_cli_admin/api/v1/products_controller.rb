@@ -2,7 +2,8 @@ class EmberCliAdmin::Api::V1::ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   def index
-    render json: Product.all
+    @products = Product.all.paginate(page: params[:page], per_page: params[:per_page])
+    render json: @products, meta: {total: Product.count}
   end
 
   def show

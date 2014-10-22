@@ -2,7 +2,8 @@ class EmberCliAdmin::Api::V1::CompaniesController < ApplicationController
   before_action :set_company, only: [:show, :update, :destroy]
 
   def index
-    render json: Company.all
+    @companies = Company.all.paginate(page: params[:page], per_page: params[:per_page])
+    render json: @companies, meta: {total: Company.count}
   end
 
   def show
