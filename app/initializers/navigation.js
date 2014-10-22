@@ -5,8 +5,9 @@ export default {
   initialize: function() {
     return Navigation.map(function() {
       this.navigate("Dashboard", { route: "dashboard" });
-      this.navigate("Companies");
       this.navigate("Users");
+      this.navigate("Companies");
+      this.navigate("Products");
     });
   }
 };

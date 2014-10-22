@@ -13,6 +13,7 @@ Router.map(function() {
 MetaRoute.map(Router, function() {
   this.resources("users");
   this.resources("companies");
+  this.resources("products");
 });
 
 export default Router;
