@@ -1,9 +1,15 @@
+require 'admin_search_ransack'
+
 class Admin::Api::V1::UsersController < ApplicationController
+  include AdminSearchRansack
+
   before_action :set_user, only: [:show, :update, :destroy]
 
   def index
-    @users = User.all.paginate(page: params[:page], per_page: params[:per_page])
-    render json: @users, meta: {total: User.count}
+    search_params = map_to_ransack(params[:q]).merge!(map_ransack_sort(params[:sort], params[:orderAscending]))
+    q = User.search(search_params).result
+    @users = q.paginate(page: params[:page], per_page: params[:per_page])
+    render json: @users, meta: {total: q.count}
   end
 
   def show

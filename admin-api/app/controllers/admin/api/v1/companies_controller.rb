@@ -1,9 +1,14 @@
+require 'admin_search_ransack'
+
 class Admin::Api::V1::CompaniesController < ApplicationController
+  include AdminSearchRansack
+
   before_action :set_company, only: [:show, :update, :destroy]
 
   def index
-    @companies = Company.all.paginate(page: params[:page], per_page: params[:per_page])
-    render json: @companies, meta: {total: Company.count}
+    q = Company.search(map_to_ransack(params[:q])).result
+    @companies = q.paginate(page: params[:page], per_page: params[:per_page])
+    render json: @companies, meta: {total: q.count}
   end
 
   def show

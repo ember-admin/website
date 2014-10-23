@@ -1,9 +1,14 @@
+require 'admin_search_ransack'
+
 class Admin::Api::V1::ProductsController < ApplicationController
+  include AdminSearchRansack
+
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   def index
-    @products = Product.all.paginate(page: params[:page], per_page: params[:per_page])
-    render json: @products, meta: {total: Product.count}
+    q = Product.search(map_to_ransack(params[:q])).result
+    @products = q.paginate(page: params[:page], per_page: params[:per_page])
+    render json: @products, meta: {total: q.count}
   end
 
   def show
