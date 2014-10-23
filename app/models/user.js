@@ -7,6 +7,5 @@ export default DS.Model.extend({
   updated_at: DS.attr('date'),
   created_at: DS.attr('date'),
 
-  fileuploads: ["avatar"],
-  formFields: ['email']
+  fileuploads: ["avatar"]
 });

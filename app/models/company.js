@@ -11,7 +11,5 @@ export default DS.Model.extend({
   logo:  DS.belongsTo('logo'),
 
   asGoogleMap: ['lat', 'long', 'zoom'],
-  fileuploads: ["logo"],
-  formFields: ['title', 'lat', 'long', 'zoom']
-
+  fileuploads: ["logo"]
 });
