@@ -5,6 +5,7 @@ Rails.application.routes.draw do
         resources :products
         resources :users
         resources :companies
+        resources :avatars
       end
     end
   end

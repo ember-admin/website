@@ -8,6 +8,8 @@ gem 'sprockets', '2.11.0'
 gem 'puma', require: false
 gem 'unicorn'
 gem 'will_paginate'
+gem 'carrierwave'
+gem 'mini_magick'
 group :development, :test, :staging do
   gem 'pry-rails'
   gem 'pry-doc'

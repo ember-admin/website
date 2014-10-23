@@ -30,7 +30,7 @@ class Admin::Api::V1::UsersController < ApplicationController
 
   def destroy
     @user.destroy
-    render json: {}, status: 200
+    render status: 204, nothing: true
   end
 
   private
