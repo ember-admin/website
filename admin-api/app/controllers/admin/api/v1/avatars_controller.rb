@@ -1,6 +1,6 @@
 require 'file_string_io'
 
-class Admin::Api::V1::AvatarsController <ApplicationController
+class Admin::Api::V1::AvatarsController < ApplicationController
 
   def index
     avatars = Avatar.paginate(page: params[:page], per_page: params[:per_page]).order('id desc')
