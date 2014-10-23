@@ -3,8 +3,8 @@ require 'file_string_io'
 class Admin::Api::V1::ProductImagesController < ApplicationController
 
   def index
-    avatars = ProductImage.paginate(page: params[:page], per_page: params[:per_page]).order('id desc')
-    render json: avatars, each_serialzier: ProductImageSerializer
+    product_images = ProductImage.paginate(page: params[:page], per_page: params[:per_page]).order('id desc')
+    render json: product_images, each_serialzier: ProductImageSerializer
   end
 
   def destroy
@@ -17,17 +17,17 @@ class Admin::Api::V1::ProductImagesController < ApplicationController
   end
 
   def create
-    avatar = ProductImage.new(fetch_params)
+    product_image = ProductImage.new(fetch_params)
     file = FileStringIO.new(request.raw_post, params[:original_filename])
-    avatar.data = file
-    avatar.save!
-    render json: avatar, serialize: ProductImageSerializer
+    product_image.data = file
+    product_image.save!
+    render json: product_image, serialize: ProductImageSerializer
   end
 
   def update
-    avatar = ProductImage.find(params[:id])
-    avatar.update_attributes(permit_params)
-    render json: avatar, serialize: ProductImageSerializer
+    product_image = ProductImage.find(params[:id])
+    product_image.update_attributes(permit_params)
+    render json: product_image, serialize: ProductImageSerializer
   end
 
   private

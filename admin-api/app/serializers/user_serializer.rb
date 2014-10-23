@@ -3,5 +3,4 @@ class UserSerializer < ActiveModel::Serializer
 
   embed :ids, include: true
   has_one :avatar
-  has_many :products, include: false
 end
