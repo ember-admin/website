@@ -38,6 +38,12 @@ class Admin::Api::V1::UsersController < ApplicationController
     render status: 204, nothing: true
   end
 
+  def autocomplete
+    q = User.search(ransack_automplete_params(:email, params[:q])).result
+    autocomplition = q.map { |user| {'value' => user.email} }
+    render json: autocomplition, root: false
+  end
+
   private
     def set_user
       @user = User.find(params[:id])

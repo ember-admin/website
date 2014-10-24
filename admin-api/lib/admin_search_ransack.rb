@@ -17,6 +17,10 @@ module AdminSearchRansack
     result
   end
 
+  def ransack_automplete_params(field, q)
+    {"#{field.to_s}_cont" => q}
+  end
+
   def map_ransack_sort(field_name, is_sort_asc)
     sort = to_boolean(is_sort_asc) ? 'asc' : 'desc'
     {'s' => "#{field_name} #{sort}"}
