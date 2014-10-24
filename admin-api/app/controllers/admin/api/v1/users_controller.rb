@@ -6,8 +6,7 @@ class Admin::Api::V1::UsersController < ApplicationController
   before_action :set_user, only: [:show, :update, :destroy]
 
   def index
-    search_params = map_to_ransack(params[:q]).merge!(map_ransack_sort(params[:sort], params[:orderAscending]))
-    q = User.search(search_params).result
+    q = User.search(ransack_params(params)).result
     @users = q.paginate(page: params[:page], per_page: params[:per_page])
     render json: @users, meta: {total: q.count}
   end

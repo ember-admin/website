@@ -6,7 +6,7 @@ class Admin::Api::V1::CompaniesController < ApplicationController
   before_action :set_company, only: [:show, :update, :destroy]
 
   def index
-    q = Company.search(map_to_ransack(params[:q])).result
+    q = Company.search(ransack_params(params)).result
     @companies = q.paginate(page: params[:page], per_page: params[:per_page])
     render json: @companies, meta: {total: q.count}
   end

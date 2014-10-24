@@ -6,7 +6,7 @@ class Admin::Api::V1::ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   def index
-    q = Product.search(map_to_ransack(params[:q])).result
+    q = Product.search(ransack_params(params)).result
     @products = q.paginate(page: params[:page], per_page: params[:per_page])
     render json: @products, meta: {total: q.count}
   end

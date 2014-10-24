@@ -1,4 +1,8 @@
 module AdminSearchRansack
+  def ransack_params(params)
+    map_to_ransack(params[:q]).merge!(map_ransack_sort(params[:sort], params[:orderAscending]))
+  end
+
   def map_to_ransack(q)
     query = decode_query(q)
     result = {}
