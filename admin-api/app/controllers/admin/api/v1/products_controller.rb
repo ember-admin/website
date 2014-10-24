@@ -38,6 +38,12 @@ class Admin::Api::V1::ProductsController < ApplicationController
     render status: 204, nothing: true
   end
 
+  def autocomplete
+    q = Product.search(ransack_automplete_params(:title, params[:q])).result
+    autocomplition = q.map { |product| {'value' => product.title} }
+    render json: autocomplition, root: false
+  end
+
   private
     def set_product
       @product = Product.find(params[:id])

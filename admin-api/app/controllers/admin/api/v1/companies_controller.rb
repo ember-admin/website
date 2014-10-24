@@ -38,6 +38,13 @@ class Admin::Api::V1::CompaniesController < ApplicationController
     render status: 204, nothing: true
   end
 
+
+  def autocomplete
+    q = Company.search(ransack_automplete_params(:title, params[:q])).result
+    autocomplition = q.map { |company| {'value' => company.title} }
+    render json: autocomplition, root: false
+  end
+
   private
     def set_company
       @company = Company.find(params[:id])
