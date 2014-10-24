@@ -1,5 +1,5 @@
 class ProductSerializer < ActiveModel::Serializer
-  attributes :id, :title, :price, :updated_at, :created_at
+  attributes :id, :title, :price, :updated_at, :created_at, :is_active
   has_one :company, include: true
   has_one :user, include: true
   has_one :product_image, include: true
