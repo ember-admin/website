@@ -7,20 +7,15 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    {{BASE_TAG}}
+    {{content-for 'head'}}
 
     <link rel="stylesheet" href="assets/vendor.css">
     <link rel="stylesheet" href="assets/admin-app.css">
   </head>
   <body>
-    <script>
-      window.AdminAppENV = {{ENV}};
-      window.EmberENV = window.AdminAppENV.EmberENV;
-    </script>
+    {{content-for 'body'}}
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&key=AIzaSyCqyf1CwoH9VU6XNYBmIXZSRsMQ0BJUOrw&libraries=places"></script>
     <script src="assets/vendor.js"></script>
     <script src="assets/admin-app.js"></script>
-    <script>
-      window.AdminApp = require('admin-app/app')['default'].create(AdminAppENV.APP);
-    </script>
   </body>
 </html>

@@ -1,12 +1,13 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
+
 # compiled output
 /dist
 /tmp
 
 # dependencies
 /node_modules
-/vendor/*
+/bower_components
 
 # misc
 /.sass-cache
@@ -15,3 +16,4 @@
 /libpeerconnection.log
 npm-debug.log
 testem.log
+.idea
