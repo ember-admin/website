@@ -1,2 +1,0 @@
-class LogoSerializer < AssetSerializer
-end

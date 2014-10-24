@@ -1,2 +1,0 @@
-class AvatarSerializer < AssetSerializer
-end
