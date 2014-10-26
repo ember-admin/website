@@ -97,9 +97,12 @@ footer {
     margin-top: -50px;
     width: 100%;
 }
-/*======================================  SIDEBAR  =============================*/
+/*======================================  IMAGES  =============================*/
 .main_img { max-width: 1586px; margin: 20px auto; }
 .main_img img { width: 100%; height: auto;}
+.plain_img {max-width: 967px; margin: 0px auto; padding: 20px 0;}
+.plain_img img { width: 100%; height: auto;}
+.content .plain_img p { width: 96%; margin: 10px 0}
 /*======================================  SIDEBAR  =============================*/
 .side_block {
     margin: 10px 0;
@@ -116,6 +119,15 @@ footer {
     display: block;
     font-weight: normal;
 }
+.ror {
+    float: left;
+    width: 60px;
+    height: 70px;
+    margin: 65px 10px 0 0;
+}
+.ror img {
+    width: 100%; height: auto;
+}
 .btn {
     border: none;
     position: relative;
@@ -123,7 +135,7 @@ footer {
     vertical-align: middle;
     display: inline-block;
     background-color: #009eec;
-    background-image: url(/images/sh.png);
+    background-image: url(../images/sh.png);
     background-position: 0px 40px;
     border-radius: 4px;
     -moz-border-radius: 4px;
@@ -284,6 +296,12 @@ hr {
 }
 .fl_r { float:right !important}
 .fl_l { float:left !important}
+.content p {
+    max-width: 1340px;
+    width: 86%;
+    margin: 0 auto;
+}
+
 /*
  * Remove the gap between images, videos, audio and canvas and the bottom of
  * their containers: h5bp.com/i/440
@@ -376,6 +394,9 @@ textarea {resize: vertical;}
 .clearfix:after {clear: both;}
 /* For IE 6/7 only  */
 .clearfix {    *zoom: 1;}
+
+
+
 
 .github{
     cursor: pointer;
