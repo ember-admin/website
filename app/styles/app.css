@@ -408,3 +408,7 @@ textarea {resize: vertical;}
     top: 0;
     border: 0;
 }
+
+a.license{
+    display: inline-block;
+}
