@@ -4,8 +4,9 @@
 # server in each group is considered to be the first
 # unless any hosts have the primary property set.
 # Don't declare `role :all`, it's a meta role
-role :app, %w{178.62.247.227}
-role :web, %w{178.62.247.227}
+SERVER = "46.101.228.77"
+role :app, [SERVER] 
+role :web, [SERVER] 
 
 # Extended Server Syntax
 # ======================
@@ -13,7 +14,7 @@ role :web, %w{178.62.247.227}
 # definition into the server list. The second argument
 # something that quacks like a hash can be used to set
 # extended properties on the server.
-server '178.62.247.227', user: 'deploy', roles: %w{web app}
+server SERVER, user: 'deploy', roles: %w{web app}
 
 set :ssh_options, {
     forward_agent: true
